@@ -48,7 +48,7 @@ py -m gregori analyze genome.fasta --species "Apis mellifera" --gff genes.gff3 -
 # 3. Interactive color terminal inspection
 py -m gregori inspect chromosome.fasta
 
-# 4. Build standalone interactive SHaNE Browser v4.2 HTML
+# 4. Build standalone interactive SHaNE Browser HTML
 py -m gregori browser results/central_library/GReGOrI_SHaNE_library.json --open
 
 # 5. Correct/superimpose assembly-locked NCBI gene annotations
@@ -63,7 +63,7 @@ py -m gregori gui --port 9000
 ## 🖥️ Modern Web Interface & Analysis Hub
 
 <p align="center">
-  <img src="docs/images/main_gui_dashboard.png" alt="GReGOrI Main Dashboard & Project Hub" width="95%">
+  <img src="docs/images/main_gui_dashboard.png" alt="GReGOrI Main Dashboard & Project Hub" width="100%">
 </p>
 
 * **Unified Project Hub**: Manage custom FASTA runs, automated NCBI dataset searches, and chained parameter sweeps.
@@ -72,17 +72,17 @@ py -m gregori gui --port 9000
 
 ---
 
-## 🔬 Interactive SHaNE Browser v4.2
+## 🔬 Interactive SHaNE Browser
 
 <p align="center">
-  <img src="docs/images/shane_browser_rings.png" alt="SHaNE Browser Dynamic Telemetry Rings" width="95%">
+  <img src="docs/images/shane_browser_rings.png" alt="SHaNE Browser Dynamic Telemetry Rings" width="100%">
 </p>
 
 * **Telemetry Gauge Rings**: Instant distribution metrics for island count, gene crossings, scores, and GC content.
 * **Adaptive Multi-Filter Navigation**: Click any gauge ring to dynamically filter the genome view by high-order structural properties.
 
 <p align="center">
-  <img src="docs/images/browser_telemetry_graph.png" alt="Distribution Telemetry and Parametric Quantile Overlays" width="95%">
+  <img src="docs/images/browser_telemetry_graph.png" alt="Distribution Telemetry and Parametric Quantile Overlays" width="100%">
 </p>
 
 * **Quantile Distribution Overlays**: Continuous metrics partitioned via dynamic sample quantiles ($Q_0 \dots Q_k$) with arithmetic mean ($\mu$) centerlines and empirical standard deviation ($\mu \pm 1\sigma$, central 68.2%) dispersion bands.
@@ -92,7 +92,7 @@ py -m gregori gui --port 9000
 ## 🔍 Structural Duplex & Gene Overlap Inspector
 
 <p align="center">
-  <img src="docs/images/shane_duplex_modal.png" alt="SHaNE Element Inspection Modal" width="95%">
+  <img src="docs/images/shane_duplex_modal.png" alt="SHaNE Element Inspection Modal" width="100%">
 </p>
 
 * **Secondary Structure Duplex Folds**: Base-pair ladder alignments with unified nearest-neighbor thermodynamic calculations ($\Delta G^\circ_{37}$, $T_m$).
@@ -100,10 +100,10 @@ py -m gregori gui --port 9000
 
 ---
 
-## 📟 Interactive Web Terminal for Legacy GReGOrI
+## 📟 Interactive Web Terminal for GReGOrI (legacy version)
 
 <p align="center">
-  <img src="docs/images/legacy_web_console.png" alt="Interactive Web Terminal Console for Legacy GReGOrI" width="95%">
+  <img src="docs/images/legacy_web_console.png" alt="Interactive Web Terminal Console for Legacy GReGOrI" width="100%">
 </p>
 
 * Run the original retro interactive console directly in your browser with full ANSI color output and automatic temporary sandbox isolation.
@@ -114,7 +114,7 @@ py -m gregori gui --port 9000
 
 ```
 GReGOrI/
-├── pyproject.toml              # PEP 517/621 packaging metadata
+├── pyproject.toml              # PEP 517/621 packaging metadata (v1.0.0)
 ├── LICENSE                     # GNU General Public License v3.0 (GPLv3)
 ├── Start_GReGOrI.bat           # 1-click Windows GUI launcher
 ├── launcher.py                 # Root GUI launcher script
@@ -123,7 +123,7 @@ GReGOrI/
 ├── gregori/                    # Unified Core Python Package
 │   ├── engine/                 # Core discovery, DP alignments, thermodynamics, plotting, terminal inspector
 │   ├── annotation/             # GFF3/GTF parser, overlap engine, NCBI datasets integration
-│   ├── browser/                # Standalone interactive SHaNE Browser v4.2 builders & themes
+│   ├── browser/                # Standalone interactive SHaNE Browser builders & themes
 │   ├── palaces/                # Enterprise Palaces architecture (Identity, Naming, Library)
 │   ├── server/                 # Local HTTP server, project controller, native file dialogs
 │   └── cli.py                  # Standardized multi-command CLI
@@ -136,7 +136,7 @@ GReGOrI/
 ├── docs/images/                # Documentation screenshots & banners
 │
 ├── Legacy/                     # Original standalone terminal console script
-│   └── GReGOrI_v0.4.2_Legacy.py
+│   └── GReGOrI (legacy version).py
 │
 ├── bin/windows-x64/            # NCBI command-line utilities (datasets.exe, dataformat.exe)
 └── tests/                      # Unified Test Suite (Engine, Browser, Annotation, Lifecycle, Smoke)
