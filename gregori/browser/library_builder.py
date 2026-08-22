@@ -13,7 +13,10 @@ def _run_browser_stage(command,label):
  if proc.returncode:raise RuntimeError(f'{label} failed: '+(proc.stderr or proc.stdout))
 def build_browser(root,library,logo):
  root=Path(root);library=Path(library);repo=library.parent
- stages=[([sys.executable,str(HERE/'GReGOrI_browser_v4_builder.py'),str(library),'--logo',str(logo)],'SHaNE Browser v4 build'),([sys.executable,str(HERE/'GReGOrI_browser_v4.1_refiner.py'),str(repo),'--logo',str(logo)],'SHaNE Browser v4.1 refinement'),([sys.executable,str(HERE/'GReGOrI_browser_v4.2_finisher.py'),str(repo)],'SHaNE Browser v4.2 finish')]
+ b_builder = HERE / "GReGOrI_browser_builder.py" if (HERE / "GReGOrI_browser_builder.py").exists() else HERE / "GReGOrI_browser_v4_builder.py"
+ b_refiner = HERE / "GReGOrI_browser_refiner.py" if (HERE / "GReGOrI_browser_refiner.py").exists() else HERE / "GReGOrI_browser_v4.1_refiner.py"
+ b_finisher = HERE / "GReGOrI_browser_finisher.py" if (HERE / "GReGOrI_browser_finisher.py").exists() else HERE / "GReGOrI_browser_v4.2_finisher.py"
+ stages=[([sys.executable,str(b_builder),str(library),'--logo',str(logo)],'SHaNE Browser build'),([sys.executable,str(b_refiner),str(repo),'--logo',str(logo)],'SHaNE Browser refinement'),([sys.executable,str(b_finisher),str(repo)],'SHaNE Browser finish')]
  for command,label in stages:_run_browser_stage(command,label)
  page=repo/'browser_v4_2/index.html'
  if not page.is_file():raise RuntimeError('SHaNE Browser v4.2 completed without index.html')

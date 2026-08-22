@@ -1,10 +1,33 @@
-# GReGOrI: Genomic Repeat Grouping & Orientation Identifier
+<p align="center">
+  <img src="docs/images/banner.png" alt="GReGOrI: SHaNE Retrieval" width="100%">
+</p>
 
-**GReGOrI** is a high-throughput scientific software suite for whole-genome discovery, dynamic programming duplex alignment, gene annotation superimposition, nearest-neighbor thermodynamic profiling, and interactive visualization of **SHaNEs** (Strict complementarity Hairpin-like Nested Elements).
+<h1 align="center">GReGOrI: Genomic Repeat Grouping & Orientation Identifier</h1>
+
+<p align="center">
+  <b>A high-throughput scientific software suite for whole-genome discovery, dynamic programming duplex alignment, gene annotation superimposition, nearest-neighbor thermodynamic profiling, and interactive visualization of SHaNEs (Strict complementarity Hairpin-like Nested Elements).</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPLv3">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-cyan.svg" alt="Python 3.9+">
+  <img src="https://img.shields.io/badge/Bioinformatics-Genomics-brightgreen.svg" alt="Genomics">
+  <img src="https://img.shields.io/badge/NCBI-Datasets%20Integrated-blueviolet.svg" alt="NCBI Datasets">
+</p>
 
 ---
 
-## Quick Start
+## 🧬 What is a SHaNE?
+
+A **Strict complementarity Hairpin-like Nested Element (SHaNE)** is an operational category of **multi-kilobase genomic architectures delimited by discrete islands of high, near-perfect Watson-Crick complementarity**.
+
+* **Strict Complementarity**: Enforces rigorous Watson-Crick base-pairing across discrete island stems rather than general sequence similarity.
+* **Nested Architecture**: Outer and inner complementary island stems flank and partition internal unbonded sequence intervals or localized branching hairpins.
+* **Structural Realism**: Evaluates sequence-level inverted repeat topology without presuming an obligate constitutive folded state in chromatin.
+
+---
+
+## 🚀 Quick Start
 
 ### 1. Launch the Web Interface (1-Click)
 Double-click [`Start_GReGOrI.bat`](Start_GReGOrI.bat) or run:
@@ -37,39 +60,62 @@ py -m gregori gui --port 9000
 
 ---
 
-## Two-Stage Analysis Workflow
+## 🖥️ Modern Web Interface & Analysis Hub
 
-1. **Stage 1 — Core Discovery**:
-   - High-throughput seed scanning (`k=20`, step sampling, lookahead window).
-   - Strict collinear geometric nesting enforcing distance contraction slopes.
-   - Dynamic island expansion under configurable complementarity thresholds.
-   - Watson-Crick dynamic programming alignment and loop folding statistics.
-   - Unified nearest-neighbor duplex thermodynamics ($\Delta G^\circ_{37}$, $T_m$).
+<p align="center">
+  <img src="docs/images/main_gui_dashboard.png" alt="GReGOrI Main Dashboard & Project Hub" width="95%">
+</p>
 
-2. **Stage 2 — Gene Map Superimposition**:
-   - If an annotation map is available (either auto-downloaded from NCBI or provided via **Browse Gene Map / GFF3**):
-     - Parses genes, pseudogenes, biotypes, and symbols.
-     - Runs fast bisect interval overlap analysis (`gene_contained_in_SHaNE`, `SHaNE_contained_in_gene`, `partial_overlap`).
-     - Links each gene to direct NCBI Gene pages.
-   - Generates the centralized `GReGOrI_SHaNE_library.json` and interactive **SHaNE Browser v4.2** with superimposed genes clearly highlighted.
+* **Unified Project Hub**: Manage custom FASTA runs, automated NCBI dataset searches, and chained parameter sweeps.
+* **1-Click NCBI Datasets CLI**: Automatic platform binary installation (`datasets.exe`, `dataformat.exe`) directly from NCBI within the interface.
+* **Real-time Lifecycle**: Pause, resume at chromosome checkpoints, restart, or re-run analyses seamlessly.
 
 ---
 
-## Project Lifecycle & Management
+## 🔬 Interactive SHaNE Browser v4.2
 
-- **Pause & Resume**: Pause running analyses at safe chromosome checkpoints and resume seamlessly.
-- **Restart**: Cleanly restart any interrupted, cancelled, or failed analysis run.
-- **Rerun**: Rerun completed analyses with updated parameters.
-- **Delete**: Remove any project in any state from the workspace into trash.
+<p align="center">
+  <img src="docs/images/shane_browser_rings.png" alt="SHaNE Browser Dynamic Telemetry Rings" width="95%">
+</p>
+
+* **Telemetry Gauge Rings**: Instant distribution metrics for island count, gene crossings, scores, and GC content.
+* **Adaptive Multi-Filter Navigation**: Click any gauge ring to dynamically filter the genome view by high-order structural properties.
+
+<p align="center">
+  <img src="docs/images/browser_telemetry_graph.png" alt="Distribution Telemetry and Parametric Quantile Overlays" width="95%">
+</p>
+
+* **Quantile Distribution Overlays**: Continuous metrics partitioned via dynamic sample quantiles ($Q_0 \dots Q_k$) with arithmetic mean ($\mu$) centerlines and empirical standard deviation ($\mu \pm 1\sigma$, central 68.2%) dispersion bands.
 
 ---
 
-## Architecture & Module Structure
+## 🔍 Structural Duplex & Gene Overlap Inspector
+
+<p align="center">
+  <img src="docs/images/shane_duplex_modal.png" alt="SHaNE Element Inspection Modal" width="95%">
+</p>
+
+* **Secondary Structure Duplex Folds**: Base-pair ladder alignments with unified nearest-neighbor thermodynamic calculations ($\Delta G^\circ_{37}$, $T_m$).
+* **Gene Annotation Overlays**: Bisect interval intersection with NCBI RefSeq / Ensembl gene models (exons, introns, CDS, UTRs) and direct NCBI Gene links.
+
+---
+
+## 📟 Interactive Web Terminal for Legacy GReGOrI
+
+<p align="center">
+  <img src="docs/images/legacy_web_console.png" alt="Interactive Web Terminal Console for Legacy GReGOrI" width="95%">
+</p>
+
+* Run the original retro interactive console directly in your browser with full ANSI color output and automatic temporary sandbox isolation.
+
+---
+
+## 📦 Architecture & Module Structure
 
 ```
 GReGOrI/
 ├── pyproject.toml              # PEP 517/621 packaging metadata
-├── LICENSE                     # MIT Open-Source License
+├── LICENSE                     # GNU General Public License v3.0 (GPLv3)
 ├── Start_GReGOrI.bat           # 1-click Windows GUI launcher
 ├── launcher.py                 # Root GUI launcher script
 ├── README.md                   # Software documentation
@@ -87,6 +133,8 @@ GReGOrI/
 │   ├── legacy.html             # Retro dark interactive web console for Legacy GReGOrI
 │   └── assets/                 # GReGOrI and SHaNE branding assets
 │
+├── docs/images/                # Documentation screenshots & banners
+│
 ├── Legacy/                     # Original standalone terminal console script
 │   └── GReGOrI_v0.4.2_Legacy.py
 │
@@ -96,7 +144,7 @@ GReGOrI/
 
 ---
 
-## Running the Automated Test Suite
+## 🧪 Running the Automated Test Suite
 
 ```bash
 py -m unittest discover tests
@@ -105,7 +153,7 @@ Runs the comprehensive unit and integration test suite across the discovery engi
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the **GNU General Public License v3.0 (GPLv3)** — see the [`LICENSE`](LICENSE) file for details.
 
@@ -113,7 +161,7 @@ This project is licensed under the **GNU General Public License v3.0 (GPLv3)** �
 
 ---
 
-## Author & Citation
+## ✍️ Author & Citation
 
 **Neim Mustafaraj**  
 *GReGOrI: Genomic Repeat Grouping & Orientation Identifier* (2026).

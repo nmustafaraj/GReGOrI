@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import platform
 import subprocess
 import sys
 import threading
@@ -41,10 +42,12 @@ LEGACY_CONSOLE_SESSIONS: dict[str, dict] = {}
 def start_legacy_console_session() -> dict:
     """Start an interactive Python subprocess for the Legacy script in a sandboxed temp directory."""
     root = ROOT
-    legacy_script = root / "Legacy" / "GReGOrI_v0.4.2_Legacy.py"
+    legacy_script = root / "Legacy" / "GReGOrI (legacy version).py"
     if not legacy_script.exists():
-        # fall back to fork if legacy not present
-        legacy_script = root / "Legacy" / "GReGOrI_v0.4.2_fork.py"
+        legacy_script = root / "Legacy" / "GReGOrI (legacy fallback).py"
+    if not legacy_script.exists():
+        # check for legacy names as safety fallback
+        legacy_script = root / "Legacy" / "GReGOrI_v0.4.2_Legacy.py"
     if not legacy_script.exists():
         return {"error": f"Legacy script not found at {legacy_script}", "status": 404}
 

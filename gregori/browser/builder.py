@@ -47,23 +47,32 @@ def build_browser(
 
     logo_args = ["--logo", str(logo_path)] if logo_path and Path(logo_path).is_file() else []
 
-    # 1. Base v4 Builder
-    cmd_v4 = [sys.executable, str(HERE / "GReGOrI_browser_v4_builder.py"), str(library_p), *logo_args]
+    # 1. Base Builder
+    builder_script = HERE / "GReGOrI_browser_builder.py"
+    if not builder_script.exists():
+        builder_script = HERE / "GReGOrI_browser_v4_builder.py"
+    cmd_v4 = [sys.executable, str(builder_script), str(library_p), *logo_args]
     proc = subprocess.run(cmd_v4, capture_output=True, text=True)
     if proc.returncode != 0:
-        raise RuntimeError(f"SHaNE Browser v4 build failed: {proc.stderr or proc.stdout}")
+        raise RuntimeError(f"SHaNE Browser build failed: {proc.stderr or proc.stdout}")
 
-    # 2. v4.1 Refiner
-    cmd_v41 = [sys.executable, str(HERE / "GReGOrI_browser_v4.1_refiner.py"), str(repo), *logo_args]
+    # 2. Refiner
+    refiner_script = HERE / "GReGOrI_browser_refiner.py"
+    if not refiner_script.exists():
+        refiner_script = HERE / "GReGOrI_browser_v4.1_refiner.py"
+    cmd_v41 = [sys.executable, str(refiner_script), str(repo), *logo_args]
     proc = subprocess.run(cmd_v41, capture_output=True, text=True)
     if proc.returncode != 0:
-        raise RuntimeError(f"SHaNE Browser v4.1 refinement failed: {proc.stderr or proc.stdout}")
+        raise RuntimeError(f"SHaNE Browser refinement failed: {proc.stderr or proc.stdout}")
 
-    # 3. v4.2 Finisher
-    cmd_v42 = [sys.executable, str(HERE / "GReGOrI_browser_v4.2_finisher.py"), str(repo)]
+    # 3. Finisher
+    finisher_script = HERE / "GReGOrI_browser_finisher.py"
+    if not finisher_script.exists():
+        finisher_script = HERE / "GReGOrI_browser_v4.2_finisher.py"
+    cmd_v42 = [sys.executable, str(finisher_script), str(repo)]
     proc = subprocess.run(cmd_v42, capture_output=True, text=True)
     if proc.returncode != 0:
-        raise RuntimeError(f"SHaNE Browser v4.2 finish failed: {proc.stderr or proc.stdout}")
+        raise RuntimeError(f"SHaNE Browser finish failed: {proc.stderr or proc.stdout}")
 
     page = repo / "browser_v4_2" / "index.html"
     if not page.is_file():
