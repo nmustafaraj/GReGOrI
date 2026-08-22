@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gregori"
+version = "1.0.0"
+description = "Genomic Repeat Grouping & Orientation Identifier: high-throughput whole-genome discovery, DP alignment, gene superimposition, and interactive visualization of SHaNEs."
+authors = [{ name = "Neim Mustafaraj" }]
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.9"
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Intended Audience :: Science/Research",
+]
+
+[project.optional-dependencies]
+plotting = ["matplotlib>=3.5.0"]
+dev = ["pytest>=7.0.0"]
+
+[project.scripts]
+gregori = "gregori.cli:main"
