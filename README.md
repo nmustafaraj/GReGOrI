@@ -330,3 +330,8 @@ This project is licensed under the **GNU General Public License v3.0 (GPLv3)** â
 **Neim Mustafaraj**  
 *GReGOrI: Genomic Repeat Grouping & Orientation Identifier* (2026).
 
+---
+
+## 15. Acknowledgements & AI Assistance Disclosure
+
+The computational architecture, mathematical algorithms, and scientific framework of GReGOrI were conceived and directed by **Neim Mustafaraj**. Generative artificial intelligence systems (including Google DeepMind's Gemini, Antigravity coding assistants and Microsoft's Copilot) were utilized as pair-programming and refactoring tools during software development, aiding in code optimization, documentation formatting, test suite authoring, and UI refinement. All biological concepts, algorithmic logic, and computational outputs were curated, validated, and verified by the author.
