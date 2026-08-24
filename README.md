@@ -180,7 +180,6 @@ Dynamic voids ($\texttt{.}$) are phase-shift gap insertions dynamically computed
 Thermodynamic stability of complementary island duplex stems is calculated using unified nearest-neighbor DNA parameters at 37°C in 50 mM monovalent cation concentration ($[\text{Na}^+] = 50\text{ mM}$), with oligonucleotide concentration $C_T = 0.2\ \mu\text{M}$:
 
 $$\Delta G^\circ_{37} = \Delta H^\circ - T \cdot \Delta S^\circ$$
-
 $$T_m\ (^\circ\text{C}) = 81.5 + 16.6 \cdot \log_{10}([\text{Na}^+]) + 0.41 \cdot (\text{\\% GC}) - \left(\frac{500}{\text{Length}}\right) - 0.61 \cdot (\text{\\% mismatch})$$
 
 > ### ⚠️ Critical Scientific Warning: Thermodynamic Limitations & Biological Context
