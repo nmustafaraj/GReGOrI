@@ -181,7 +181,7 @@ Thermodynamic stability of complementary island duplex stems is calculated using
 
 $$\Delta G^\circ_{37} = \Delta H^\circ - T \cdot \Delta S^\circ$$
 
-$$T_m\ (^\circ\text{C}) = 81.5 + 16.6 \cdot \log_{10}([\text{Na}^+]) + 0.41 \cdot (\%\text{GC}) - \left(\frac{500}{\text{Length}}\right) - 0.61 \cdot (\%\text{mismatch})$$
+$$T_m\ (^\circ\text{C}) = 81.5 + 16.6 \cdot \log_{10}([\text{Na}^+]) + 0.41 \cdot (\text{\\% GC}) - \left(\frac{500}{\text{Length}}\right) - 0.61 \cdot (\text{\\% mismatch})$$
 
 > ### ⚠️ Critical Scientific Warning: Thermodynamic Limitations & Biological Context
 > **The thermodynamic free energy ($\Delta G^\circ_{37}$) and melting temperature ($T_m$) metrics computed by GReGOrI are derived under standardized in vitro physical parameters ($T = 37^\circ\text{C}$, $[\text{Na}^+] = 50\text{ mM}$, $C_T = 0.2\ \mu\text{M}$), representative of standard mammalian / human homeothermic somatic conditions.**
